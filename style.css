@@ -99,13 +99,6 @@ h2 {
     margin-left: 10px; /* Ajuster la marge à gauche pour les images inversées */
 }
 
-.service:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-.service:nth-child(even) .service-content {
-    margin-left: 10px; /* Ajuster la marge à gauche pour le contenu inversé */
-}
 
 footer {
     background-color: #282cbc;
