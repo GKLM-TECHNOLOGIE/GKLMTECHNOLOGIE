@@ -210,40 +210,45 @@ footer {
     }
 
     .header-content {
-        flex-direction: column;
+        flex-direction: column; /* Empiler le logo et le texte */
     }
 
     header img {
-        max-width: 100%;
+        max-width: 100%; /* Adapter la largeur du logo */
         height: auto;
     }
 
     .header-text h1 {
-        font-size: 2em;
+        font-size: 2em; /* Réduire la taille du titre */
     }
 
     .services-list {
-        font-size: 1em;
+        font-size: 1em; /* Réduire la taille de la liste de services */
     }
 
     .formation, .service {
-        flex-direction: column;
+        flex-direction: column; /* Empiler l'image et le contenu */
     }
 
     .formation img, .service img {
-        order: -1;
+        width: 100%;  /* Adapter la largeur des images */
+        height: auto;
     }
 
     .formation-content h3, .service-content h3 {
-        font-size: 1.5em;
+        font-size: 1.5em; /* Réduire la taille des titres de service */
+    }
+
+    .formation-content .formation-item h4,
+    .service-content .service-item h4 {
+        font-size: 1.2em; /* Réduire la taille des sous-titres */
+    }
+
+    .formation-content p, .service-content p {
+        font-size: 0.9em; /* Réduire la taille du texte */
     }
 
     .voir-plus {
-        display: block; /* Afficher par défaut sur mobile */
+        display: block; /* Afficher le bouton "Voir plus" par défaut */
     }
-}
-
-/* Style spécifique pour la boutique */
-.boutique-service {
-    flex-direction: row-reverse; /* Image à droite, contenu à gauche */
 }
