@@ -76,7 +76,7 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-height: 400px; /* Hauteur maximale avant "Voir Plus" - ajustée à la hauteur des images */
+    /* max-height: 400px; */ /* Supprimer ou augmenter la hauteur maximale */ 
     overflow: hidden;
     position: relative;
 }
@@ -232,6 +232,7 @@ footer {
 
     .formation-content, .service-content {
         order: 1; /* Placer le contenu texte après l'image */
+        max-height: none; /* Supprimer la hauteur maximale */
     }
 
     .formation-content h3, .service-content h3 {
