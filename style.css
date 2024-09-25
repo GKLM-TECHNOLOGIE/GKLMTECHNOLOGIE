@@ -24,11 +24,12 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column; /* Par défaut, les éléments sont en colonne */
 }
 
 header img {
     max-width: 150px;
-    margin-right: 20px;
+    margin-bottom: 10px; /* Espace entre le logo et le texte */
     border-radius: 10px;
 }
 
@@ -70,10 +71,6 @@ h2 {
     border-radius: 10px;
 }
 
-/* Pour ramener les images à gauche pour ces sections spécifiques */
-.service:nth-child(1), .service:nth-child(3) {
-    flex-direction: column; /* Sur mobile, on garde la disposition en colonne */
-}
 
 .formation-content, .service-content {
     flex: 1;
@@ -95,22 +92,6 @@ h2 {
     border-radius: 10px;
 }
 
-.formation:nth-child(even) {
-    flex-direction: column; /* Sur mobile, on garde la disposition en colonne */
-}
-
-.formation:nth-child(even) img {
-    margin-right: 0;
-    margin-left: 0; /* Ajuster la marge à gauche pour les images inversées */
-}
-
-.service:nth-child(even) {
-    flex-direction: column; /* Sur mobile, on garde la disposition en colonne */
-}
-
-.service:nth-child(even) .service-content {
-    margin-left: 0; /* Ajuster la marge à gauche pour le contenu inversé */
-}
 
 footer {
     background-color: #282cbc;
@@ -209,6 +190,15 @@ footer {
 
 /* Styles pour les tablettes et les ordinateurs (écrans de plus de 768px) */
 @media (min-width: 768px) {
+    .header-content {
+        flex-direction: row; /* Retour à la disposition en ligne pour les écrans plus grands */
+    }
+
+    header img {
+        margin-bottom: 0; /* Réinitialiser la marge inférieure du logo */
+        margin-right: 20px; /* Espace entre le logo et le texte */
+    }
+
     .formation, .service {
         flex-direction: row; /* Retour à la disposition en ligne pour les écrans plus grands */
     }
