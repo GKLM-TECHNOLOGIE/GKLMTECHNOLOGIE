@@ -66,9 +66,14 @@ h2 {
     padding: 20px;
     margin-bottom: 20px;
     display: flex;
+    flex-direction: column; /* Par défaut, les éléments sont en colonne sur mobile */
     border-radius: 10px;
 }
 
+/* Pour ramener les images à gauche pour ces sections spécifiques */
+.service:nth-child(1), .service:nth-child(3) {
+    flex-direction: column; /* Sur mobile, on garde la disposition en colonne */
+}
 
 .formation-content, .service-content {
     flex: 1;
@@ -76,30 +81,36 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* max-height: 400px; */ /* Supprimer ou augmenter la hauteur maximale */ 
+    max-height: 400px; /* Hauteur maximale avant "Voir Plus" - ajustée à la hauteur des images */
     overflow: hidden;
     position: relative;
 }
 
 .formation img, .service img {
-    width: 35%; 
-    height: 400px; 
+    width: 100%; /* Image occupe toute la largeur sur mobile */
+    height: auto; 
     object-fit: cover; 
     display: block;
     margin: 0 auto 10px auto; 
     border-radius: 10px;
 }
 
-/* Inverser l'ordre pour les formations/services pairs sur les écrans plus larges */
-.formation:nth-child(even), .service:nth-child(even) {
-    flex-direction: row-reverse; 
+.formation:nth-child(even) {
+    flex-direction: column; /* Sur mobile, on garde la disposition en colonne */
 }
 
-.formation:nth-child(even) img, .service:nth-child(even) img {
-    margin-right: 0; 
-    margin-left: 10px; 
+.formation:nth-child(even) img {
+    margin-right: 0;
+    margin-left: 0; /* Ajuster la marge à gauche pour les images inversées */
 }
 
+.service:nth-child(even) {
+    flex-direction: column; /* Sur mobile, on garde la disposition en colonne */
+}
+
+.service:nth-child(even) .service-content {
+    margin-left: 0; /* Ajuster la marge à gauche pour le contenu inversé */
+}
 
 footer {
     background-color: #282cbc;
@@ -183,7 +194,7 @@ footer {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    display: none; /* Caché par défaut */
+    display: block; /* Afficher par défaut sur mobile */
 }
 
 .formation-content:hover .voir-plus,
@@ -196,59 +207,39 @@ footer {
     overflow: visible;
 }
 
-/* Styles pour les smartphones (écrans de moins de 768px) */
-@media (max-width: 768px) {
-    .container {
-        max-width: 95%;
-        padding: 10px;
-    }
-
-    .header-content {
-        flex-direction: column; /* Empiler le logo et le texte */
-    }
-
-    header img {
-        max-width: 100%; /* Adapter la largeur du logo */
-        height: auto;
-    }
-
-    .header-text h1 {
-        font-size: 2em; /* Réduire la taille du titre */
-    }
-
-    .services-list {
-        font-size: 1em; /* Réduire la taille de la liste de services */
-    }
-
+/* Styles pour les tablettes et les ordinateurs (écrans de plus de 768px) */
+@media (min-width: 768px) {
     .formation, .service {
-        flex-direction: column; /* Empiler l'image et le contenu */
+        flex-direction: row; /* Retour à la disposition en ligne pour les écrans plus grands */
     }
 
     .formation img, .service img {
-        width: 100%;
-        height: auto;
-        order: -1; /* Placer les images avant le contenu */
+        width: 35%; /* Rétablir la largeur de l'image */
+        height: 400px; 
     }
 
-    .formation-content, .service-content {
-        order: 1; /* Placer le contenu texte après l'image */
-        max-height: none; /* Supprimer la hauteur maximale */
+    .formation:nth-child(even) {
+        flex-direction: row-reverse; /* Rétablir l'inversion pour les formations paires */
     }
 
-    .formation-content h3, .service-content h3 {
-        font-size: 1.5em; /* Réduire la taille des titres de service */
+    .formation:nth-child(even) img {
+        margin-left: 10px; 
     }
 
-    .formation-content .formation-item h4,
-    .service-content .service-item h4 {
-        font-size: 1.2em; /* Réduire la taille des sous-titres */
+    .service:nth-child(even) {
+        flex-direction: row-reverse; /* Rétablir l'inversion pour les services pairs */
     }
 
-    .formation-content p, .service-content p {
-        font-size: 0.9em; /* Réduire la taille du texte */
+    .service:nth-child(even) .service-content {
+        margin-left: 10px; 
     }
 
     .voir-plus {
-        display: block; /* Afficher le bouton "Voir plus" par défaut */
+        display: none; /* Cacher par défaut sur les écrans plus grands */
+    }
+
+    /* Rétablir les flex-direction pour les sections spécifiques sur les écrans plus grands */
+    .service:nth-child(1), .service:nth-child(3) {
+        flex-direction: row; 
     }
 }
