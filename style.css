@@ -90,15 +90,15 @@ h2 {
     border-radius: 10px;
 }
 
-/* Supprimer l'inversion pour les formations/services pairs */
-/* .formation:nth-child(even), .service:nth-child(even) { 
-    flex-direction: row; 
+/* Inverser l'ordre pour les formations/services pairs sur les écrans plus larges */
+.formation:nth-child(even), .service:nth-child(even) {
+    flex-direction: row-reverse; 
 }
 
 .formation:nth-child(even) img, .service:nth-child(even) img {
-    margin-right: 10px; 
-    margin-left: 0; 
-} */
+    margin-right: 0; 
+    margin-left: 10px; 
+}
 
 
 footer {
@@ -224,14 +224,14 @@ footer {
         flex-direction: column; /* Empiler l'image et le contenu */
     }
 
-    .formation > *, .service > * { /* Cibler les enfants directs de .formation et .service */
-        order: 0; /* Réinitialiser l'ordre par défaut */
-    }
-
     .formation img, .service img {
         width: 100%;
         height: auto;
         order: -1; /* Placer les images avant le contenu */
+    }
+
+    .formation-content, .service-content {
+        order: 1; /* Placer le contenu texte après l'image */
     }
 
     .formation-content h3, .service-content h3 {
