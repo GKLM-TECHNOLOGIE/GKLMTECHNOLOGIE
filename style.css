@@ -226,6 +226,7 @@ footer {
     .formation img, .service img {
         width: 100%;  /* Adapter la largeur des images */
         height: auto;
+        order: -1; /* Placer l'image en premier */ 
     }
 
     .formation-content h3, .service-content h3 {
