@@ -90,14 +90,15 @@ h2 {
     border-radius: 10px;
 }
 
-.formation:nth-child(even) {
-    flex-direction: row-reverse; /* Inverser l'ordre pour les formations paires */
+/* Supprimer l'inversion pour les formations/services pairs */
+/* .formation:nth-child(even), .service:nth-child(even) { 
+    flex-direction: row; 
 }
 
-.formation:nth-child(even) img {
-    margin-right: 0;
-    margin-left: 10px; /* Ajuster la marge à gauche pour les images inversées */
-}
+.formation:nth-child(even) img, .service:nth-child(even) img {
+    margin-right: 10px; 
+    margin-left: 0; 
+} */
 
 
 footer {
@@ -230,13 +231,8 @@ footer {
     .formation img, .service img {
         width: 100%;
         height: auto;
-    }
-
-    .formation:nth-child(odd) img, /* Images des formations impaires */
-    .service:nth-child(odd) img { 
         order: -1; /* Placer les images avant le contenu */
     }
-
 
     .formation-content h3, .service-content h3 {
         font-size: 1.5em; /* Réduire la taille des titres de service */
