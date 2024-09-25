@@ -223,11 +223,20 @@ footer {
         flex-direction: column; /* Empiler l'image et le contenu */
     }
 
-    .formation img, .service img {
-        width: 100%;  /* Adapter la largeur des images */
-        height: auto;
-        order: -1; /* Placer l'image en premier */ 
+    .formation > *, .service > * { /* Cibler les enfants directs de .formation et .service */
+        order: 0; /* Réinitialiser l'ordre par défaut */
     }
+
+    .formation img, .service img {
+        width: 100%;
+        height: auto;
+    }
+
+    .formation:nth-child(odd) img, /* Images des formations impaires */
+    .service:nth-child(odd) img { 
+        order: -1; /* Placer les images avant le contenu */
+    }
+
 
     .formation-content h3, .service-content h3 {
         font-size: 1.5em; /* Réduire la taille des titres de service */
