@@ -126,6 +126,7 @@ footer {
 
 .formation-content p, .service-content p {
     margin-bottom: 5px;
+    text-align: justify; /* Justifier le texte des paragraphes */
 }
 
 /* Styles pour la section contact */
