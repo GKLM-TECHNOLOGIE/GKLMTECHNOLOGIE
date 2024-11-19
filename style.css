@@ -220,6 +220,12 @@ footer {
     overflow: visible;
 }
 
+/* Style général du corps de la page */
+.header-text p {
+    color: black;
+    font-weight: bold;
+}
+
 /* Media Queries pour les tablettes et ordinateurs */
 @media (min-width: 768px) {
     .header-content {
